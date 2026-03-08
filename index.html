@@ -1,90 +1,58 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Astuce Cybersécurité</title>
 
-<meta property="og:title" content="Astuce cybersécurité du jour">
-
-<meta property="og:description"
-content="Découvre chaque jour une astuce pour protéger tes comptes et éviter le piratage.">
-
+<!-- Open Graph pour Facebook -->
+<meta property="og:title" content="Astuce cybersécurité">
+<meta property="og:description" id="ogdesc" content="Découvre une astuce pour protéger tes comptes.">
 <meta property="og:type" content="website">
-
-<meta property="og:url"
-content="https://drissou13.github.io/securise/">
-
-<meta property="og:image"
-content="https://drissou13.github.io/securise/cyber.jpg">
+<meta property="og:url" content="https://drissou13.github.io/securise/">
+<meta property="og:image" content="https://drissou13.github.io/securise/cyber.jpg">
 
 <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
 
 <header>
-
 <h1>🟢 Terminal Cybersécurité</h1>
-
 <p>1 jour = 1 astuce contre le piratage</p>
-
 </header>
 
 <main>
 
 <div class="terminal">
-
 <p id="scan"></p>
 
 <div id="tipBox" style="display:none;">
-
-<p class="line">> Astuce du jour :</p>
-
+<p>> Astuce :</p>
 <p id="tip"></p>
 
-<p class="line">> Explication :</p>
-
+<p>> Explication :</p>
 <p id="explanation"></p>
-
 </div>
-
 </div>
 
 <div class="buttons">
-
 <button onclick="markLearned()">🧠 J'ai appris</button>
-
+<button id="copyBtn" onclick="copyTip()">📋 Copier</button>
 </div>
 
 <div class="share">
-
 <button onclick="shareFacebook()">Facebook</button>
-
 <button onclick="shareWhatsapp()">WhatsApp</button>
-
-<button onclick="shareTwitter()">X / Twitter</button>
-
 </div>
 
-<p class="counter">
-Jours appris : <span id="daysLearned">0</span>
-</p>
+<p class="counter">Jours appris : <span id="daysLearned">0</span></p>
 
 </main>
 
 <footer>
-
 <p>Stay Secure 🔐</p>
-
 </footer>
 
 <script src="script.js"></script>
-
 </body>
-
 </html>
