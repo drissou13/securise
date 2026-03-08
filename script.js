@@ -1,4 +1,3 @@
-
 const scanLines = [
 
 "> Initialisation du système...",
@@ -12,7 +11,6 @@ const scanLines = [
 ];
 
 let scanElement = document.getElementById("scan");
-
 let i = 0;
 
 function runScan(){
@@ -20,9 +18,7 @@ function runScan(){
 if(i < scanLines.length){
 
 scanElement.innerHTML += scanLines[i] + "<br>";
-
 i++;
-
 setTimeout(runScan,800);
 
 }else{
@@ -71,7 +67,6 @@ exp:"Cela permet de créer des mots de passe forts et différents pour chaque si
 function showTip(){
 
 let day = new Date().getDate();
-
 let data = tips[day % tips.length];
 
 document.getElementById("tipBox").style.display = "block";
@@ -98,9 +93,7 @@ function typing(){
 if(i < text.length){
 
 element.innerHTML += text.charAt(i);
-
 i++;
-
 setTimeout(typing,40);
 
 }
@@ -136,34 +129,7 @@ function getTipText(){
 let tip = document.getElementById("tip").innerText;
 let exp = document.getElementById("explanation").innerText;
 
-return "🔐 Astuce cybersécurité du jour :\n\n"
-+ tip + "\n\n"
-+ exp;
-
-}
-
-
-// partage général
-
-function shareGeneral(){
-
-let text = getTipText();
-
-if(navigator.share){
-
-navigator.share({
-
-title:"Astuce cybersécurité",
-text:text
-
-});
-
-}else{
-
-navigator.clipboard.writeText(text);
-
-alert("Astuce copiée !");
-}
+return "🔐 Astuce cybersécurité du jour : " + tip + " - " + exp;
 
 }
 
@@ -174,7 +140,7 @@ function shareFacebook(){
 
 let text = encodeURIComponent(getTipText());
 
-let url = "https://www.facebook.com/sharer/sharer.php?u=&quote="+text;
+let url = "https://www.facebook.com/sharer/sharer.php?quote=" + text;
 
 window.open(url,"_blank");
 
@@ -187,20 +153,20 @@ function shareWhatsapp(){
 
 let text = encodeURIComponent(getTipText());
 
-let url = "https://wa.me/?text="+text;
+let url = "https://wa.me/?text=" + text;
 
 window.open(url,"_blank");
 
 }
 
 
-// Twitter
+// Twitter / X
 
 function shareTwitter(){
 
 let text = encodeURIComponent(getTipText());
 
-let url = "https://twitter.com/intent/tweet?text="+text;
+let url = "https://twitter.com/intent/tweet?text=" + text;
 
 window.open(url,"_blank");
 
