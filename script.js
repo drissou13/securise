@@ -195,3 +195,4 @@ document
 .setAttribute("content", text);
 
 }
+setTimeout(updateOG,2000);
