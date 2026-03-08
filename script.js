@@ -1,3 +1,4 @@
+
 const scanLines = [
 
 "> Initialisation du système...",
@@ -35,26 +36,37 @@ showTip();
 runScan();
 
 
-// astuces
+// ASTUCES
 
 const tips = [
 
 {
 tip:"Active l’authentification à deux facteurs",
-exp:"Cela ajoute une seconde protection même si ton mot de passe est volé."
+exp:"Même si un pirate obtient ton mot de passe, il aura besoin d'un second code pour accéder à ton compte."
 },
 
 {
 tip:"Utilise des mots de passe longs",
-exp:"Plus un mot de passe est long, plus il est difficile à pirater."
+exp:"Les mots de passe longs sont beaucoup plus difficiles à pirater par force brute."
 },
 
 {
-tip:"Ne télécharge pas de fichiers inconnus",
-exp:"Certains fichiers peuvent contenir des virus ou des malwares."
+tip:"Ne clique pas sur les liens suspects",
+exp:"Beaucoup de pirates utilisent des emails de phishing pour voler tes identifiants."
+},
+
+{
+tip:"Mets ton système à jour",
+exp:"Les mises à jour corrigent des failles de sécurité utilisées par les pirates."
+},
+
+{
+tip:"Utilise un gestionnaire de mots de passe",
+exp:"Cela permet de créer des mots de passe forts et différents pour chaque site."
 }
 
 ];
+
 
 function showTip(){
 
@@ -96,5 +108,100 @@ setTimeout(typing,40);
 }
 
 typing();
+
+}
+
+
+// compteur apprentissage
+
+let learned = localStorage.getItem("learnedDays") || 0;
+
+document.getElementById("daysLearned").innerText = learned;
+
+function markLearned(){
+
+learned++;
+
+localStorage.setItem("learnedDays",learned);
+
+document.getElementById("daysLearned").innerText = learned;
+
+}
+
+
+// récupération texte
+
+function getTipText(){
+
+let tip = document.getElementById("tip").innerText;
+let exp = document.getElementById("explanation").innerText;
+
+return "🔐 Astuce cybersécurité du jour :\n\n"
++ tip + "\n\n"
++ exp;
+
+}
+
+
+// partage général
+
+function shareGeneral(){
+
+let text = getTipText();
+
+if(navigator.share){
+
+navigator.share({
+
+title:"Astuce cybersécurité",
+text:text
+
+});
+
+}else{
+
+navigator.clipboard.writeText(text);
+
+alert("Astuce copiée !");
+}
+
+}
+
+
+// Facebook
+
+function shareFacebook(){
+
+let text = encodeURIComponent(getTipText());
+
+let url = "https://www.facebook.com/sharer/sharer.php?u=&quote="+text;
+
+window.open(url,"_blank");
+
+}
+
+
+// WhatsApp
+
+function shareWhatsapp(){
+
+let text = encodeURIComponent(getTipText());
+
+let url = "https://wa.me/?text="+text;
+
+window.open(url,"_blank");
+
+}
+
+
+// Twitter
+
+function shareTwitter(){
+
+let text = encodeURIComponent(getTipText());
+
+let url = "https://twitter.com/intent/tweet?text="+text;
+
+window.open(url,"_blank");
 
 }
