@@ -11,6 +11,7 @@ const scanLines = [
 ];
 
 let scanElement = document.getElementById("scan");
+
 let i = 0;
 
 function runScan(){
@@ -18,7 +19,9 @@ function runScan(){
 if(i < scanLines.length){
 
 scanElement.innerHTML += scanLines[i] + "<br>";
+
 i++;
+
 setTimeout(runScan,800);
 
 }else{
@@ -67,6 +70,7 @@ exp:"Cela permet de créer des mots de passe forts et différents pour chaque si
 function showTip(){
 
 let day = new Date().getDate();
+
 let data = tips[day % tips.length];
 
 document.getElementById("tipBox").style.display = "block";
@@ -93,7 +97,9 @@ function typing(){
 if(i < text.length){
 
 element.innerHTML += text.charAt(i);
+
 i++;
+
 setTimeout(typing,40);
 
 }
@@ -122,11 +128,12 @@ document.getElementById("daysLearned").innerText = learned;
 }
 
 
-// récupération texte
+// récupérer texte astuce
 
 function getTipText(){
 
 let tip = document.getElementById("tip").innerText;
+
 let exp = document.getElementById("explanation").innerText;
 
 return "🔐 Astuce cybersécurité du jour : " + tip + " - " + exp;
@@ -140,9 +147,12 @@ function shareFacebook(){
 
 let text = encodeURIComponent(getTipText());
 
-let url = "https://www.facebook.com/sharer/sharer.php?quote=" + text;
+let url = encodeURIComponent("https://drissou13.github.io/securise/");
 
-window.open(url,"_blank");
+window.open(
+"https://www.facebook.com/sharer/sharer.php?u=" + url + "&quote=" + text,
+"_blank"
+);
 
 }
 
@@ -153,9 +163,10 @@ function shareWhatsapp(){
 
 let text = encodeURIComponent(getTipText());
 
-let url = "https://wa.me/?text=" + text;
-
-window.open(url,"_blank");
+window.open(
+"https://wa.me/?text=" + text + "%20https://drissou13.github.io/securise/",
+"_blank"
+);
 
 }
 
@@ -166,8 +177,9 @@ function shareTwitter(){
 
 let text = encodeURIComponent(getTipText());
 
-let url = "https://twitter.com/intent/tweet?text=" + text;
-
-window.open(url,"_blank");
+window.open(
+"https://twitter.com/intent/tweet?text=" + text + "&url=https://drissou13.github.io/securise/",
+"_blank"
+);
 
 }
