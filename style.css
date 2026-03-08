@@ -1,28 +1,21 @@
 body{
-
 margin:0;
 background:black;
 color:#00ff9c;
 font-family:monospace;
 text-align:center;
-
 }
 
 header{
-
 padding:30px;
 border-bottom:1px solid #00ff9c;
-
 }
 
 main{
-
 padding:40px 20px;
-
 }
 
 .terminal{
-
 max-width:700px;
 margin:auto;
 text-align:left;
@@ -31,17 +24,9 @@ padding:30px;
 border:1px solid #00ff9c;
 border-radius:10px;
 box-shadow:0 0 20px #00ff9c44;
-
-}
-
-.line{
-
-margin-top:20px;
-
 }
 
 button{
-
 background:#00ff9c;
 color:black;
 border:none;
@@ -50,46 +35,43 @@ margin:5px;
 border-radius:6px;
 cursor:pointer;
 font-weight:bold;
-
+transition: transform 0.2s;
 }
 
 button:hover{
-
 background:#00cc7a;
-
+transform: scale(1.05);
 }
 
 .share{
-
 margin-top:25px;
 display:flex;
 flex-wrap:wrap;
 gap:10px;
 justify-content:center;
-
 }
 
 .counter{
-
 margin-top:20px;
 font-size:18px;
+}
 
+#copyBtn.copied{
+animation: bounce 0.4s;
+}
+
+@keyframes bounce{
+0%{transform: scale(1);}
+50%{transform: scale(1.3);}
+100%{transform: scale(1);}
 }
 
 footer{
-
 margin-top:40px;
 padding:20px;
 border-top:1px solid #00ff9c;
-
 }
 
 @media(max-width:600px){
-
-.terminal{
-
-padding:20px;
-
-}
-
+.terminal{padding:20px;}
 }
