@@ -183,3 +183,15 @@ window.open(
 );
 
 }
+function updateOG(){
+
+let tip = document.getElementById("tip").innerText;
+let exp = document.getElementById("explanation").innerText;
+
+let text = "🔐 Astuce cybersécurité du jour : " + tip + " - " + exp;
+
+document
+.querySelector("meta[property='og:description']")
+.setAttribute("content", text);
+
+}
